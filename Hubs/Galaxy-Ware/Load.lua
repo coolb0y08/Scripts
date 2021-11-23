@@ -7,6 +7,7 @@ local Games = {
 
 for PlaceId, Loadstring in pairs(Games) do
     if PlaceId:find(game.PlaceId) then
+        --print(PlaceId)
         loadstring(game:HttpGet("https://raw.githubusercontent.com/coolb0y08/Scripts/main/Hubs/Galaxy-Ware/Games/"..Loadstring..".lua"))();
     end;
 end;
