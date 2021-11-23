@@ -28,30 +28,7 @@ wrap(function()
     end);
 end)()
 
--- File system --
-
-local file = {};
-local folder = {};
-file.read = readfile;
-file.write = writefile;
-file.append = appendfile;
-file.load = loadfile;
-file.list = listfiles;
-file.exist = isfile;
-file.delete = delfile;
-folder.exist = isfolder;
-folder.delete = delfolder;
-folder.create = makefolder;
-
 -- Miscellaneous functions --
-
-writeclipboard = setclipboard;
-setmaxfps = setfpscap;
-local old = error;
-error = function(m)
-    old(m);
-    TestService:Error(m);
-end;
 
 getplayers = function()
     local PlayerList = { };
@@ -65,18 +42,7 @@ end
 
 Player = Players.LocalPlayer;
 
--- HTTP Functions --
-
-http = {
-    ["request"] = (syn and syn.request) or (http and http.request) or http_request;
-    ["get"] = game.HttpGet;
-    ["decode"] = function(t)
-        return HttpService:JSONDecode(t)
-    end;
-    ["encode"] = function(t)
-        return HttpService:JSONEncode(t)
-    end;
-};
+-- Functions --
 
 load = function(id)
     return loadstring(game:HttpGet("https://raw.githubusercontent.com/coolb0y08/Scripts/main/Hubs/Galaxy-Ware/Modules/"..id..".lua"));
